@@ -151,14 +151,14 @@ public class Four442Gui extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent action) {
         
-        int print;
+        String print;
         
         if ("Start".equals(action.getActionCommand())) {
             
             // read in each value of the input boxes
             readInput();
             print = four442.run();
-            output.setText("" + print);
+            output.setText(print);
             
         } else {
             

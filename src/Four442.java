@@ -83,7 +83,7 @@ public class Four442 {
 		}	
 	}
 	
-	public void decR0 (){
+	public void decR0 () {
 		
 		R0--;
 		if (R0  < 0) {
@@ -94,7 +94,7 @@ public class Four442 {
 		
 	}
 	
-	public void decR1 (){
+	public void decR1 () {
 		
 		R1--;
 		if (R1 < 0) {
@@ -105,7 +105,7 @@ public class Four442 {
 		
 	}
 	
-	public void swap(){
+	public void swap() {
 		
 		int temp = R1;
 		char bell = 0x07;
@@ -135,22 +135,16 @@ public class Four442 {
 	}
 	
 	
-	public int run () {
+	public String run () {
 	    
 	    int i;
 	    int data = 0;
 	    int temp = 0;
-	    int print = 0;
+	    String print = "";
         
-        for (i = 0; i < MAX_INT + 1; i++) {
+        for (i = 0; programme[i] != EXIT; i++) {
             
-            
-            if (programme[i] == EXIT) {
-                
-                i = MAX_INT + 1;
-                System.out.println("exit");
-                
-            } else if (programme[i] == ADD) {
+            if (programme[i] == ADD) {
                 
                 add();
                 System.out.println("add");
@@ -196,7 +190,7 @@ public class Four442 {
                 data = programme[i];
                 temp = getR0();
                 loadR0(temp ^ data);
-                print = getR0();
+                print += getR0() + "    ";
                 System.out.println("print " + getR0());
                 
             } else if (programme[i] == LOADR0) {
@@ -259,6 +253,13 @@ public class Four442 {
                     System.out.println("jnz");
                     
                 }
+                
+            }
+            
+            // loop back to the beggining
+            if (i == MAX_INT) {
+                
+                i = -1;
                 
             }
 	    
